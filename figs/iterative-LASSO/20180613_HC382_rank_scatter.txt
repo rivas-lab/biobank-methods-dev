@@ -1,0 +1,7 @@
+Comparison of Junyang’s LASSO vs. PLINK logistic regression.
+
+We identified 137 SNPs from LASSO and found that 133 SNPs are included in the summary statistics from PLINK. (I suspect PLINK returned NAs for these 4 SNPs).
+
+For these 133 SNPs, we computed the rank of absolute value of coefficient from LASSO (y-axis) and compared it with the rank of p-value in the PLINK summay statistics (x-axis). Note there are 779,830 SNPs in the PLINK summary statistics.
+
+The Jupyter notebook used to generate this plot is available here: https://github.com/rivas-lab/biobank-methods-dev/blob/master/notebook/iterative-LASSO/20180613_HC382.ipynb
