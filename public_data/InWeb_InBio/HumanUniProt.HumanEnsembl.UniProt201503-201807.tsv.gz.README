@@ -1,0 +1,2 @@
+$ zcat /oak/stanford/groups/mrivas/public_data/uniprot/201807/knowledgebase/idmapping/by_organism/HUMAN_9606_idmapping.Ensembl.dat.gz /oak/stanford/groups/mrivas/public_data/uniprot/201807/knowledgebase/idmapping/idmapping.dat.2015_03.Ensembl.Human.gz | awk -v FS='\t' -v OFS='\t' '{print $1, $3}' | sort -u | gzip > HumanUniProt.HumanEnsembl.UniProt201503-201807.tsv.gz
+
