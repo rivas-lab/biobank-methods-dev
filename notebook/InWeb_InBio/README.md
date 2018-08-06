@@ -20,9 +20,7 @@ Genomic variants (SNPs, identified as quadruple, chromosome, position, ref, alt)
 The actual mapping procedure is documented in the notebook in the same directory and the data sources are as follows:
 
 ## Ensembl Gene ID mapping through Ensembl Biomart
-We first tried to map the ID using the dump from Ensembl Biomart. We used GRCh37 version of Ensembl Biomart (version 93).
-http://grch37.ensembl.org/biomart/martview/a1dd8d894cef69d1cc6dfb4889e32301
-and exported the followings to the file.
+We first tried to map the ID using the dump from Ensembl Biomart. We used GRCh37 version of Ensembl Biomart (version 93) (http://grch37.ensembl.org/biomart/) and exported the followings to the file.
 
 - Gene stable ID
 - Gene name
@@ -34,12 +32,17 @@ We decided to use other data source (UniProt dump for both the current version a
 ## UniProt ID dump
 
 We downloaded the mapping information (between UniProt ID and Ensembl Gene ID) from UniProt FTP site:
+
 ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/README
 
 Specifically, we used 
+
 ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/idmapping.dat.2015_03.gz
+
 and 
+
 ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/idmapping/by_organism/HUMAN_9606_idmapping.dat.gz
+
 because the documentation says 2015/03 is the last version before they performed redundancy elimination.
 
 
