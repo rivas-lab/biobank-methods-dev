@@ -1,0 +1,32 @@
+PLINK v2.00aLM 64-bit Intel (5 Jan 2018)       www.cog-genomics.org/plink/2.0/
+(C) 2005-2018 Shaun Purcell, Christopher Chang   GNU General Public License v3
+Logging to /oak/stanford/groups/mrivas/users/ytanigaw/repos/rivas-lab/biobank-methods-dev/private_data/data-split/train_10k.log.
+Options in effect:
+  --bfile /oak/stanford/groups/mrivas/users/ytanigaw/repos/rivas-lab/biobank-methods-dev/private_data/data-split/train
+  --keep /oak/stanford/groups/mrivas/users/ytanigaw/repos/rivas-lab/biobank-methods-dev/private_data/data-split/train_10k.fam
+  --make-bed
+  --memory 64000
+  --out /oak/stanford/groups/mrivas/users/ytanigaw/repos/rivas-lab/biobank-methods-dev/private_data/data-split/train_10k
+  --threads 4
+
+Start time: Wed Aug  8 22:22:26 2018
+64215 MB RAM detected; reserving 64000 MB for main workspace.
+Using up to 4 compute threads.
+202276 samples (108604 females, 93672 males; 202276 founders) loaded from
+/oak/stanford/groups/mrivas/users/ytanigaw/repos/rivas-lab/biobank-methods-dev/private_data/data-split/train.fam.
+805426 variants loaded from
+/oak/stanford/groups/mrivas/users/ytanigaw/repos/rivas-lab/biobank-methods-dev/private_data/data-split/train.bim.
+Note: No phenotype data present.
+--keep: 10000 samples remaining.
+10000 samples (5305 females, 4695 males; 10000 founders) remaining after main
+filters.
+Writing
+/oak/stanford/groups/mrivas/users/ytanigaw/repos/rivas-lab/biobank-methods-dev/private_data/data-split/train_10k.bed
+... 0%8%16%24%32%40%48%56%65%73%81%89%97%done.
+Writing
+/oak/stanford/groups/mrivas/users/ytanigaw/repos/rivas-lab/biobank-methods-dev/private_data/data-split/train_10k.bim
+... done.
+Writing
+/oak/stanford/groups/mrivas/users/ytanigaw/repos/rivas-lab/biobank-methods-dev/private_data/data-split/train_10k.fam
+... done.
+End time: Wed Aug  8 22:23:40 2018
