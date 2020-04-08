@@ -48,6 +48,12 @@ def plot_biplot_arrow_ax(plot_d, ax_sub):
             xytext=(0, 0),
             arrowprops=dict(facecolor='red', shrinkA=0,shrinkB=0),
         )
+        ax_sub.annotate(
+            plot_d['sub_label'][annot_idx], 
+            xy=(plot_d['sub_x'][annot_idx], plot_d['sub_y'][annot_idx]),
+            xytext=(plot_d['sub_x'][annot_idx], plot_d['sub_y'][annot_idx])
+        )
+        
 
 def plot_pca(plot_d):
     fig = plt.figure(figsize=(6,6))
