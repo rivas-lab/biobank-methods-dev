@@ -4,14 +4,20 @@ Using the results from SRRR, we extract the relevant matrices.
 
 ## Scripts
 
-- [`srrr-plot_functinos.R`](srrr-plot_functinos.R): helper functions for data extraction
+- [`srrr-plot_functinos.R`](srrr-plot_functinos.R): helper function.
 - [`extract_biplot_data.R`](extract_biplot_data.R): extract three matrices from SRRR results directory.
   - Manny provided [a snippet on Gist](https://gist.github.com/marivascruz/a3ed835c6f8d77652007974acd286d2c) for data extraction. Yosuke modified so that we can extract the relevant matrices as tsv files.
   - We keep a copy of the snippet, [`writeSVDSRRR.r`](writeSVDSRRR.r), in this directory.
 - [`srrr_plot_functinos.py`](srrr_plot_functinos.py): helper functions for data visualization.
 - [`srrr-plot-example.ipynb`](srrr-plot-example.ipynb): example notebook for visualization.
+- [`3_R_plot.ipynb`](3_R_plot.ipynb): ggplot version of biplot!
 
-## example
+## Note
+
+- It turned out that it's hard to annotate with Python nicely (1st image) especially when multiple phenotypes are sharing a similar direction.
+- I rewrote the plotting codes in ggplot2 (2nd image), which also means we can embed this with ggplotly!!
+
+## Examples
 
 ### `results_asthma_rank_5_unweightedresults_rank_2`
 

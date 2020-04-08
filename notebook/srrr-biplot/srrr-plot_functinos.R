@@ -59,7 +59,7 @@ matrix_to_df <- function(mat){
 #     df
 # }
 
-extract_biplot_data <- function(C, phenames, varnames, save_path){
+extract_biplot_data <- function(C, phenames, varnames, r, save_path){
     svd_obj <- svd(C)
     
     # save D (singular values)
@@ -121,9 +121,6 @@ pca_plot <- function(df, PC_x, PC_y, color='red'){
     ggplot(aes(x=PC_x, y=PC_y, label=label, shape='_')) +
     geom_point(size=3, color=color) +
     theme_bw() +
-#     xlim(-lim_abs, lim_abs) +
-#     ylim(-lim_abs, lim_abs) +
-#     labs(x = PC_x, y = PC_y) +
     ggrepel::geom_text_repel(size=3, color=color) +
     scale_shape_manual(values=('_'=4)) +
     guides(shape=FALSE) + 

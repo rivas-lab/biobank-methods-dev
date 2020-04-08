@@ -16,4 +16,4 @@ save_path   <- args[3]
 
 load(find_res_file(results_dir, find_argmax_lambda_idx(results_dir)))
 
-extract_biplot_data(fit$C, rownames(A_init), rownames(fit$C), save_path)
+extract_biplot_data(fit$C, rownames(A_init), rownames(fit$C), r, save_path)
