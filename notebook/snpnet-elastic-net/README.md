@@ -1,14 +1,12 @@
 
-
 ## job submission
 
 ```{bash}
 for alpha in 0.9 0.5 0.1 ; do
 for phe in INI21001 INI50 ; do
-sbatch snpnet.elastic.net.sbatch.sh ${phe} gaussian ${alpha}
+echo "${phe} ${alpha} $(sbatch snpnet.elastic.net.sbatch.sh ${phe} gaussian ${alpha} | awk '{print $NF}')"
 done
-done
-
+done | tee -a snpnet.elastic.net.sbatch.log
 
 # sbatch snpnet.elastic.net.sbatch.sh INI21001 gaussian 0.9
 ```
@@ -16,39 +14,39 @@ done
 ```{bash}
 for alpha in 0.9 0.5 0.1 ; do
 for phe in HC269 HC382 ; do
-sbatch snpnet.elastic.net.sbatch.covid19.sh ${phe} binomial ${alpha}
+echo "${phe} ${alpha} $(sbatch snpnet.elastic.net.sbatch.covid19.sh ${phe} binomial ${alpha} | awk '{print $NF}')"
 done
-done
+done | tee -a snpnet.elastic.net.sbatch.covid19.log
 ```
 
 ### job IDs
 
 ```
-for alpha in 0.9 0.5 0.1 ; do
+[ytanigaw@sh02-ln03 login ~/repos/rivas-lab/biobank-methods-dev/notebook/snpnet-elastic-net]$ for alpha in 0.9 0.5 0.1 ; do
 > for phe in INI21001 INI50 ; do
-> sbatch snpnet.elastic.net.sbatch.sh ${phe} gaussian ${alpha}
+> echo "${phe} ${alpha} $(sbatch snpnet.elastic.net.sbatch.sh ${phe} gaussian ${alpha} | awk '{print $NF}')"
 > done
-> done
-Submitted batch job 65511908
-Submitted batch job 65511909
-Submitted batch job 65511911
-Submitted batch job 65511912
-Submitted batch job 65511914
-Submitted batch job 65511915
+> done | tee -a snpnet.elastic.net.sbatch.log
+INI21001 0.9 65560506
+INI50 0.9 65560511
+INI21001 0.5 65560515
+INI50 0.5 65560519
+INI21001 0.1 65560521
+INI50 0.1 65560523
 ```
 
 ```{bash}
 $ for alpha in 0.9 0.5 0.1 ; do
 > for phe in HC269 HC382 ; do
-> sbatch snpnet.elastic.net.sbatch.covid19.sh ${phe} binomial ${alpha}
+> echo "$(sbatch snpnet.elastic.net.sbatch.covid19.sh ${phe} binomial ${alpha} | awk '{print $NF}') ${job_alpha} ${jid}"
 > done
-> done
-Submitted batch job 65512258
-Submitted batch job 65512261
-Submitted batch job 65512264
-Submitted batch job 65512267
-Submitted batch job 65512269
-Submitted batch job 65512271
+> done | tee -a snpnet.elastic.net.sbatch.covid19.log
+65560286
+65560289
+65560292
+65560295
+65560297
+65560300
 ```
 
 ## phenotype

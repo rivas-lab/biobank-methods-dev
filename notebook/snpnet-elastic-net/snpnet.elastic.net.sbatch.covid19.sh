@@ -24,8 +24,8 @@ if [ $# -gt 5 ] ; then cores=$6 ;       else cores=${def_cores} ; fi
 if [ $# -gt 6 ] ; then mem=$7 ;         else mem=${def_mem} ; fi
 
 submit_new_job () {
-    local job_script="snpnet.elastic.net.sbatch.sh"
-    local job_sub_log="snpnet.elastic.net.sbatch.log"
+    local job_script="snpnet.elastic.net.sbatch.covid19.sh"
+    local job_sub_log="snpnet.elastic.net.sbatch.covid19.log"
 
     local job_phenotype_name=$1
     local job_family=$2
