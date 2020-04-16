@@ -4,11 +4,9 @@
 ```{bash}
 for alpha in 0.9 0.5 0.1 ; do
 for phe in INI21001 INI50 ; do
-echo "${phe} ${alpha} $(sbatch snpnet.elastic.net.sbatch.sh ${phe} gaussian ${alpha} | awk '{print $NF}')"
+echo "${phe} ${alpha} $(sbatch snpnet.elastic.net.sbatch.covid19.sh ${phe} gaussian ${alpha} | awk '{print $NF}')"
 done
-done | tee -a snpnet.elastic.net.sbatch.log
-
-# sbatch snpnet.elastic.net.sbatch.sh INI21001 gaussian 0.9
+done | tee -a snpnet.elastic.net.sbatch.covid19.log
 ```
 
 ```{bash}
@@ -17,6 +15,18 @@ for phe in HC269 HC382 ; do
 echo "${phe} ${alpha} $(sbatch snpnet.elastic.net.sbatch.covid19.sh ${phe} binomial ${alpha} | awk '{print $NF}')"
 done
 done | tee -a snpnet.elastic.net.sbatch.covid19.log
+```
+
+### alternative forms of job submission
+
+```{bash}
+for alpha in 0.9 0.5 0.1 ; do
+for phe in INI21001 INI50 ; do
+echo "${phe} ${alpha} $(sbatch snpnet.elastic.net.sbatch.sh ${phe} gaussian ${alpha} | awk '{print $NF}')"
+done
+done | tee -a snpnet.elastic.net.sbatch.log
+
+# sbatch snpnet.elastic.net.sbatch.sh INI21001 gaussian 0.9
 ```
 
 ### job IDs

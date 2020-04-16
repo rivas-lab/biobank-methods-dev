@@ -4,7 +4,7 @@
 #SBATCH  --error=logs/snp.elnet.%A.err
 #SBATCH --nodes=1
 #SBATCH --cores=8
-#SBATCH --mem=64000
+#SBATCH --mem=120000
 #SBATCH --time=2-00:00:00
 # SBATCH -p mrivas 
 # SBATCH --qos=high_p
@@ -18,8 +18,8 @@ set -beEuo pipefail
 def_cores=$( cat $0 | egrep '^#SBATCH --cores='  | awk -v FS='=' '{print $NF}' )
 def_mem=$(   cat $0 | egrep '^#SBATCH --mem='    | awk -v FS='=' '{print $NF}' )
 
-if [ $# -gt 3 ] ; then try_cnt=$4 ;     else try_cnt='2' ; fi
-if [ $# -gt 4 ] ; then try_cnt_tot=$5 ; else try_cnt_tot='10' ; fi
+if [ $# -gt 3 ] ; then try_cnt=$4 ;     else try_cnt='1' ; fi
+if [ $# -gt 4 ] ; then try_cnt_tot=$5 ; else try_cnt_tot='1' ; fi
 if [ $# -gt 5 ] ; then cores=$6 ;       else cores=${def_cores} ; fi
 if [ $# -gt 6 ] ; then mem=$7 ;         else mem=${def_mem} ; fi
 
@@ -35,7 +35,7 @@ submit_new_job () {
     local job_cores=$6
     local job_mem=$7
 
-    if [ "${job_try_cnt_tot}" -lt 5 ] ; then
+    if [ "${job_try_cnt_tot}" -lt 10 ] ; then
         if [ "${job_try_cnt}" -gt 1 ] ; then
             job_cores=$( perl -e "print(int(${job_cores}))" )
             job_mem=$(   perl -e "print(int(${job_mem} * 1.5))" )
