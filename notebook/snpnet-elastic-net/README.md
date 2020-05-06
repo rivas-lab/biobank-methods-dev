@@ -4,6 +4,24 @@
 ```{bash}
 for alpha in 0.9 0.5 0.1 ; do
 for phe in INI21001 INI50 ; do
+echo "${phe} ${alpha} $(sbatch snpnet.elastic.net.sbatch.sh ${phe} gaussian ${alpha} | awk '{print $NF}')"
+done
+done | tee -a snpnet.elastic.net.sbatch.log
+```
+
+```{bash}
+for alpha in 0.9 0.5 0.1 ; do
+for phe in HC269 HC382 ; do
+echo "${phe} ${alpha} $(sbatch snpnet.elastic.net.sbatch.sh ${phe} binomial ${alpha} | awk '{print $NF}')"
+done
+done | tee -a snpnet.elastic.net.sbatch.log
+```
+
+### alternative forms of job submission
+
+```{bash}
+for alpha in 0.9 0.5 0.1 ; do
+for phe in INI21001 INI50 ; do
 echo "${phe} ${alpha} $(sbatch snpnet.elastic.net.sbatch.covid19.sh ${phe} gaussian ${alpha} | awk '{print $NF}')"
 done
 done | tee -a snpnet.elastic.net.sbatch.covid19.log
@@ -16,8 +34,6 @@ echo "${phe} ${alpha} $(sbatch snpnet.elastic.net.sbatch.covid19.sh ${phe} binom
 done
 done | tee -a snpnet.elastic.net.sbatch.covid19.log
 ```
-
-### alternative forms of job submission
 
 ```{bash}
 for alpha in 0.9 0.5 0.1 ; do
