@@ -9,6 +9,7 @@
   - `geno`: the r2 or AUC of the risk score computed only with the genetic variants.
   - `covar`: the r2 or AUC of the risk score computed only with the covariates.
   - `geno_covar`: : the r2 or AUC of the risk score computed with both the genetic variants and covariates.
+  - `split`: this column indicate which of the train/val/test set was used for the evaluation.
 - [`snpnet-elastic-net.eval.ipynb`](snpnet-elastic-net.eval.ipynb): this notebook was used to generate the table above.
 
 ## file location
