@@ -1,79 +1,19 @@
+# The elastic net in `snpnet`
 
-## job submission
+## performance evaluation
 
-```{bash}
-for alpha in 0.9 0.5 0.1 ; do
-for phe in INI21001 INI50 ; do
-echo "${phe} ${alpha} $(sbatch snpnet.elastic.net.sbatch.sh ${phe} gaussian ${alpha} | awk '{print $NF}')"
-done
-done | tee -a snpnet.elastic.net.sbatch.log
-```
+- [`snpnet-elastic-net.eval.tsv`](snpnet-elastic-net.eval.tsv): this table has the evaluated performance.
+  - `GBE_ID`: the phenotype ID in Global Biobank Engine
+  - `alpha`: the value of the alpha parameter in elastic net
+  - `n_variables`: the number of genetic variants (this does NOT include the number of covariates) in the model
+  - `geno`: the r2 or AUC of the risk score computed only with the genetic variants.
+  - `covar`: the r2 or AUC of the risk score computed only with the covariates.
+  - `geno_covar`: : the r2 or AUC of the risk score computed with both the genetic variants and covariates.
+- [`snpnet-elastic-net.eval.ipynb`](snpnet-elastic-net.eval.ipynb): this notebook was used to generate the table above.
 
-```{bash}
-for alpha in 0.9 0.5 0.1 ; do
-for phe in HC269 HC382 ; do
-echo "${phe} ${alpha} $(sbatch snpnet.elastic.net.sbatch.sh ${phe} binomial ${alpha} | awk '{print $NF}')"
-done
-done | tee -a snpnet.elastic.net.sbatch.log
-```
+## file location
 
-### alternative forms of job submission
-
-```{bash}
-for alpha in 0.9 0.5 0.1 ; do
-for phe in INI21001 INI50 ; do
-echo "${phe} ${alpha} $(sbatch snpnet.elastic.net.sbatch.covid19.sh ${phe} gaussian ${alpha} | awk '{print $NF}')"
-done
-done | tee -a snpnet.elastic.net.sbatch.covid19.log
-```
-
-```{bash}
-for alpha in 0.9 0.5 0.1 ; do
-for phe in HC269 HC382 ; do
-echo "${phe} ${alpha} $(sbatch snpnet.elastic.net.sbatch.covid19.sh ${phe} binomial ${alpha} | awk '{print $NF}')"
-done
-done | tee -a snpnet.elastic.net.sbatch.covid19.log
-```
-
-```{bash}
-for alpha in 0.9 0.5 0.1 ; do
-for phe in INI21001 INI50 ; do
-echo "${phe} ${alpha} $(sbatch snpnet.elastic.net.sbatch.sh ${phe} gaussian ${alpha} | awk '{print $NF}')"
-done
-done | tee -a snpnet.elastic.net.sbatch.log
-
-# sbatch snpnet.elastic.net.sbatch.sh INI21001 gaussian 0.9
-```
-
-### job IDs
-
-```
-[ytanigaw@sh02-ln03 login ~/repos/rivas-lab/biobank-methods-dev/notebook/snpnet-elastic-net]$ for alpha in 0.9 0.5 0.1 ; do
-> for phe in INI21001 INI50 ; do
-> echo "${phe} ${alpha} $(sbatch snpnet.elastic.net.sbatch.sh ${phe} gaussian ${alpha} | awk '{print $NF}')"
-> done
-> done | tee -a snpnet.elastic.net.sbatch.log
-INI21001 0.9 65560506
-INI50 0.9 65560511
-INI21001 0.5 65560515
-INI50 0.5 65560519
-INI21001 0.1 65560521
-INI50 0.1 65560523
-```
-
-```{bash}
-$ for alpha in 0.9 0.5 0.1 ; do
-> for phe in HC269 HC382 ; do
-> echo "$(sbatch snpnet.elastic.net.sbatch.covid19.sh ${phe} binomial ${alpha} | awk '{print $NF}') ${job_alpha} ${jid}"
-> done
-> done | tee -a snpnet.elastic.net.sbatch.covid19.log
-65560286
-65560289
-65560292
-65560295
-65560297
-65560300
-```
+- `/oak/stanford/groups/mrivas/projects/biobank-methods-dev/snpnet-elastic-net`
 
 ## phenotype
 
