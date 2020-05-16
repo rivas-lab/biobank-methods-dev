@@ -5,8 +5,6 @@ GBE_ID=$1
 
 out_dir="/oak/stanford/groups/mrivas/projects/biobank-methods-dev/snpnet-PRScs/PRScs/${GBE_ID}"
 
-if [ ! -d ${out_dir} ] ; then mkdir -p ${out_dir} ; fi
-
 ml load snpnet_yt
 
 python /oak/stanford/groups/mrivas/users/ytanigaw/repos/getian107/PRScs/PRScs.py \
