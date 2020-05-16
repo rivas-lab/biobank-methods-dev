@@ -24,7 +24,7 @@ echo "$chr ${snp_s}-${snp_e}"
 
 ml load gctb
 gctb \
---bfile /scratch/groups/mrivas/projects/biobank-methods-dev/snpnet-SBayesR/ukb24983_cal_c${chr}_v2_hg19_train_val \
+--bfile /scratch/groups/mrivas/projects/biobank-methods-dev/snpnet-SBayesR/bfile/ukb24983_cal_c${chr}_v2_hg19_train_val \
 --make-sparse-ldm \
 --snp "${snp_s}-${snp_e}" \
 --out /oak/stanford/groups/mrivas/projects/biobank-methods-dev/snpnet-SBayesR/ldm_train_val/ukb24983_cal_chr${chr}
