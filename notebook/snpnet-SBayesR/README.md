@@ -1,5 +1,15 @@
 # `SBayesR`
 
+We apply `SBayesR` analysis implemented in [GCTB (a tool for Genome-wide Complex Trait Bayesian analysis)](https://cnsgenomics.com/software/gctb/#Overview).
+
+## results
+
+We have the performance evaluation results for the 4 phenotypes in the following files.
+In [GCTB's tutorial](https://cnsgenomics.com/software/gctb/#Tutorial), they say use of `--exclude-mhc` is "Highly recommended when performing genome-wide analyses".
+We have two sets of results with and without this option.
+
+- [`SBayesR.eval.tsv`](SBayesR.eval.tsv)
+- [`SBayesR-exclude-mhc.eval.tsv`](SBayesR-exclude-mhc.eval.tsv)
 
 ## scripts
 
@@ -15,4 +25,11 @@
 - [`5_afreq.sh`](5_afreq.sh): compute allele frequencies of the variants (which is a required column in GCTA-COJO's ma format)
 - [`6_plink2_to_GCTA-COJO-ma.sh`](6_plink2_to_GCTA-COJO-ma.sh): script to convert PLINK2 summary statistics into GCTA-COJO's ma format.
   - [`6_plink2_to_GCTA-COJO-ma.R`](6_plink2_to_GCTA-COJO-ma.R): R script for format conversion.
-- [`7_SBayesR.sh`](7_SBayesR.sh): GCTB SBayesR
+- [`7a_SBayesR.sh`](7a_SBayesR.sh): GCTB SBayesR
+  - In their tutorial, they recommend to run it with `--exclude-mhc` option.
+  - [`7b_SBayesR-exclude-mhc.sh`](7b_SBayesR-exclude-mhc.sh)
+- [`8_beta_conv.sh`](8_beta_conv.sh): convert the beta into the format we've been using in plink/snpnet.
+- [`9a_plink_score.sh`](9a_plink_score.sh): compute PRS with plink2 `--score`.
+  - [`9b_plink_score-exclude-mhc.sh`](9b_plink_score-exclude-mhc.sh): no-MHC version.
+- [`10a_performance_eval.ipynb`](10a_performance_eval.ipynb): the performance evaluation.
+  - [`10b_performance_eval-exclude-mhc.ipynb`](10b_performance_eval-exclude-mhc.ipynb)
