@@ -12,6 +12,15 @@
   - `split`: this column indicate which of the train/val/test set was used for the evaluation.
 - [`snpnet-elastic-net.eval.ipynb`](snpnet-elastic-net.eval.ipynb): this notebook was used to generate the table above.
 
+## Ridge regression
+
+```{bash}
+ 5007  May 18 17:47:43> bash resbatch.sh --job_cmd 'sbatch -p mrivas --qos=high_p --job-name=ridge --output=logs/ridge.%A.out --error=logs/ridge.%A.err --time=2-0:00:00' --mem 50000 -c 6 --mem_mult 2 --log logs/resbatch.log --src snpnet.elastic.net.sh - INI50 gaussian 0
+ 5008  May 18 17:47:53> bash resbatch.sh --job_cmd 'sbatch -p mrivas --qos=high_p --job-name=ridge --output=logs/ridge.%A.out --error=logs/ridge.%A.err --time=2-0:00:00' --mem 50000 -c 6 --mem_mult 2 --log logs/resbatch.log --src snpnet.elastic.net.sh - INI21001 gaussian 0
+ 5009  May 18 17:48:15> bash resbatch.sh --job_cmd 'sbatch -p mrivas --qos=high_p --job-name=ridge --output=logs/ridge.%A.out --error=logs/ridge.%A.err --time=2-0:00:00' --mem 50000 -c 6 --mem_mult 2 --log logs/resbatch.log --src snpnet.elastic.net.sh - HC269 binomial 0
+ 5010  May 18 17:48:21> bash resbatch.sh --job_cmd 'sbatch -p mrivas --qos=high_p --job-name=ridge --output=logs/ridge.%A.out --error=logs/ridge.%A.err --time=2-0:00:00' --mem 50000 -c 6 --mem_mult 2 --log logs/resbatch.log --src snpnet.elastic.net.sh - HC382 binomial 0
+```
+
 ## file location
 
 - `/oak/stanford/groups/mrivas/projects/biobank-methods-dev/snpnet-elastic-net`
