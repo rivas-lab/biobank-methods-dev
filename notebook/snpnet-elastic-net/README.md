@@ -19,6 +19,8 @@
  5008  May 18 17:47:53> bash resbatch.sh --job_cmd 'sbatch -p mrivas --qos=high_p --job-name=ridge --output=logs/ridge.%A.out --error=logs/ridge.%A.err --time=2-0:00:00' --mem 50000 -c 6 --mem_mult 2 --log logs/resbatch.log --src snpnet.elastic.net.sh - INI21001 gaussian 0
  5009  May 18 17:48:15> bash resbatch.sh --job_cmd 'sbatch -p mrivas --qos=high_p --job-name=ridge --output=logs/ridge.%A.out --error=logs/ridge.%A.err --time=2-0:00:00' --mem 50000 -c 6 --mem_mult 2 --log logs/resbatch.log --src snpnet.elastic.net.sh - HC269 binomial 0
  5010  May 18 17:48:21> bash resbatch.sh --job_cmd 'sbatch -p mrivas --qos=high_p --job-name=ridge --output=logs/ridge.%A.out --error=logs/ridge.%A.err --time=2-0:00:00' --mem 50000 -c 6 --mem_mult 2 --log logs/resbatch.log --src snpnet.elastic.net.sh - HC382 binomial 0
+
+ 5027  May 21 16:42:47> resbatch.sh --job_cmd 'sbatch -p mrivas --qos=high_p --job-name=ridge --output=logs/ridge.%A.out --error=logs/ridge.%A.err --time=2-0:00:00' --mem 1000000 -c 10 --mem_add 500000 --try_total 5 --try_n 1 --log logs/resbatch.log --src snpnet.elastic.net.sh - INI50 gaussian 0
 ```
 
 ## file location
