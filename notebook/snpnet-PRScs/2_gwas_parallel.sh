@@ -3,6 +3,9 @@ set -beEuo pipefail
 
 ml load plink2/20200706
 
+# We installed PLINK2 software as a software module in our HPC system.
+# This `ml load plink2/20200409` updates the PATHs so that we can execute plink2 software.
+
 batch_idx=${SLURM_ARRAY_TASK_ID:=1}
 if [ $# -gt 0 ] ; then batch_idx=$1 ; fi
 GBE_ID=$2

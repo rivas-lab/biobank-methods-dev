@@ -5,6 +5,9 @@ GBE_ID=$1
 
 ml load gctb/2.0.standard
 
+# We installed GCTB (a tool for Genome-wide Complex Trait Bayesian analysis) software as a software module in our HPC system.
+# This `ml load gctb/2.0.standard` updates the PATHs so that we can execute gctb software.
+
 data_d="/oak/stanford/groups/mrivas/projects/biobank-methods-dev/snpnet-SBayesR"
 out_d="${data_d}/SBayesR"
 
