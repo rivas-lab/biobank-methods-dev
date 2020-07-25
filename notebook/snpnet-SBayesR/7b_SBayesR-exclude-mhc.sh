@@ -3,15 +3,20 @@ set -beEuo pipefail
 
 GBE_ID=$1
 
-ml load gctb
+ml load gctb/2.0.standard
+
+data_d="/oak/stanford/groups/mrivas/projects/biobank-methods-dev/snpnet-SBayesR"
+out_d="${data_d}/SBayesR-exclude-mhc"
+
+if [ ! -d ${out_d} ] ; then mkdir -p ${out_d} ; fi
 
 gctb --sbayes R \
-     --ldm /oak/stanford/groups/mrivas/projects/biobank-methods-dev/snpnet-SBayesR/ukb24983_cal_cAUTO.train_val.ldm.sparse \
+     --ldm "${data_d}/ukb24983_cal_cAUTO.train_val.ldm.sparse" \
      --pi 0.95,0.02,0.02,0.01 \
      --gamma 0.0,0.01,0.1,1 \
-     --gwas-summary "/oak/stanford/groups/mrivas/projects/biobank-methods-dev/snpnet-SBayesR/sumstats_train_val/${GBE_ID}.ma" \
+     --gwas-summary "${data_d}/sumstats_train_val/${GBE_ID}.ma" \
      --chain-length 10000 \
-     --burn-in 2000 \
+     --burn-in 4000 \
      --out-freq 100 \
      --exclude-mhc \
-     --out /oak/stanford/groups/mrivas/projects/biobank-methods-dev/snpnet-SBayesR/SBayesR-exclude-mhc/${GBE_ID}
+     --out ${out_d}/${GBE_ID}
