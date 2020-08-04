@@ -17,7 +17,8 @@ We have two sets of results with and without this option.
 - [`2_bfile_nvars_cnt.sh`](2_bfile_nvars_cnt.sh)
   - [`2_bfile_nvars.tsv`](2_bfile_nvars.tsv)
 - [`3_ldm-sparse.sh`](3_ldm-sparse.sh): this is the script used for the sparse ldm computation.
-  - Job submission: `sbatch --chdir=./ -p mrivas --nodes=1 --mem=8000 --cpus-per-task=1 --time=2-0:00:00 --job-name=ldm --output=logs/ldm.%A_%a.out --error=logs/ldm.%A_%a.err --array=1-143 3_ldm-sparse.sh`
+  - Job submission for sparse LDM: `sbatch --chdir=./ -p mrivas --nodes=1 --mem=8000 --cpus-per-task=1 --time=2-0:00:00 --job-name=ldm --output=logs/ldm.%A_%a.out --error=logs/ldm.%A_%a.err --array=1-143 3_ldm-sparse.sh`
+  - Job submission for shrunk LDM: `sbatch --chdir=./ -p mrivas --qos=high_p --nodes=1 --mem=8000 --cpus-per-task=1 --time=2-0:00:00 --job-name=ldm-shrunk --output=logs/ldm-shrunk.%A_%a.out --error=logs/ldm-shrunk.%A_%a.err --array=1-143 3_ldm-shrunk.sh`
   - [`3_ldm-sparse.batch.comp.ipynb`](3_ldm-sparse.batch.comp.ipynb): this notebook generates the index file for the array job.
   - [`3_ldm-sparse.batch.tsv`](3_ldm-sparse.batch.tsv): the index file for the array job.
 - [`4_ldm-sparse-merge.sh`](4_ldm-sparse-merge.sh): combine the ldm sparse matrix into one file.
