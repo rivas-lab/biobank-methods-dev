@@ -13,6 +13,7 @@ NUM_POS_ARGS="1"
 
 GBE_ID=$1
 P_thr=$2
+split_str=$3
 
 ############################################################
 # modules
@@ -29,10 +30,10 @@ ml load plink2/20200725 R/3.6 gcc
 
 data_d_root="/oak/stanford/groups/mrivas/projects/biobank-methods-dev"
 data_d="${data_d_root}/$(basename ${SRCDIR})"
-prune_f="${data_d}/ukb24983_cal_cALL_v2_hg19_train_val.prune.in"
+prune_f="${data_d}/ukb24983_cal_cALL_v2_hg19_${split_str}.prune.in"
 pfile='/oak/stanford/groups/mrivas/ukbb24983/cal/pgen/ukb24983_cal_cALL_v2_hg19'
-clump_in_sumstats=$(ls ${data_d_root}/snpnet-PRScs/sumstats_train_val/${GBE_ID}.*glm.*)
-out_prefix="${data_d}/${GBE_ID}.P_${P_thr}"
+clump_in_sumstats=$(ls ${data_d_root}/snpnet-PRScs/sumstats_${split_str}/${GBE_ID}.*glm.*)
+out_prefix="${data_d}/${split_str}/${GBE_ID}.P_${P_thr}"
 betas="${out_prefix}.plink.tsv"
 
 ############################################################
@@ -84,4 +85,6 @@ mv ${out_prefix}.log ${out_prefix}.sscore.log
 
 exit 0
 
-for GBE_ID in INI50 INI21001 HC269 HC382 ; do for p1 in 1e-5 1e-4 1e-3 ; do bash 2_plink-score.sh $GBE_ID $p1 ; done ; done
+for GBE_ID in INI50 INI21001 HC269 HC382 ; do for p1 in 1e-5 1e-4 1e-3 ; do bash 2_plink-score.sh $GBE_ID $p1 train ; done ; done
+for GBE_ID in INI50 INI21001 HC269 HC382 ; do for p1 in 1e-5 1e-4 1e-3 ; do bash 2_plink-score.sh $GBE_ID $p1 train_val ; done ; done
+

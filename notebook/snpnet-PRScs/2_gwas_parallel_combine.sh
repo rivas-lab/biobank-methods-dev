@@ -4,7 +4,9 @@ set -beEuo pipefail
 GBE_ID=$1
 n_batch=100
 
-out_d="/oak/stanford/groups/mrivas/projects/biobank-methods-dev/snpnet-PRScs/sumstats_train_val"
+if [ $# -gt 1 ] ; then split_str=$2 ; else split_str="train_val" ; fi
+
+out_d="/oak/stanford/groups/mrivas/projects/biobank-methods-dev/snpnet-PRScs/sumstats_${split_str}"
 
 ##################
 
