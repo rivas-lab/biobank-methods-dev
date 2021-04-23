@@ -1,12 +1,22 @@
+#!/bin/bash
+set -beEuo pipefail
 
-# pheno='HC382'
+SRCNAME=$(readlink -f $0)
+SRCDIR=$(dirname ${SRCNAME})
 
-# bash GREAT_binom_viewer.sh /oak/stanford/groups/mrivas/projects/biobank-methods-dev/20210422_SRRR/Asthma/results_rank_5/output_lambda_67/GREAT_out/${pheno} MGIPhenoSingleKO ${pheno} > ${pheno}.tsv
+source ${SRCDIR}/parameters.sh
 
-phenos=(Component1 Component2 Component3 Component4 Component5) 
+out_f=${data_d}/${RData_path%.RData}/GREAT_out/${ontology}.tsv.gz
 
-for pheno in ${phenos[@]} ; do
+{
+    echo "#sample_ID ontology term_ID BPval BFold Bn Bk BProb" | tr ' ' '\t'
+    echo ${samples_str} | tr ',' '\n' | while read pheno ; do
+        bash GREAT_binom_viewer.sh \
+            ${data_d}/${RData_path%.RData}/GREAT_out/${pheno} \
+            ${ontology} ${pheno} \
+            | egrep -v '^#'
+    done 
+} | bgzip -l9 -@6 > ${out_f}
 
-    bash GREAT_binom_viewer.sh /oak/stanford/groups/mrivas/projects/biobank-methods-dev/20210422_SRRR/Asthma/results_rank_5/output_lambda_67/GREAT_out/${pheno} MGIPhenoSingleKO ${pheno} > ${pheno}.tsv
+echo ${out_f}
 
-done
