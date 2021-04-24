@@ -8,8 +8,8 @@ source parameters.sh
 
 cd ${great_d}
 
-echo "scp ${hostname}:${data_d}/${RData_path%.RData}/GREAT_in_bed.tar.gz ."
-scp ${hostname}:${data_d}/${RData_path%.RData}/GREAT_in_bed.tar.gz .
+echo "scp ${hostname}:${data_d}/${results_sub_d}/${rdata_base}/GREAT_in_bed.tar.gz ."
+scp ${hostname}:${data_d}/${results_sub_d}/${rdata_base}/GREAT_in_bed.tar.gz .
 
 tar -xzvf GREAT_in_bed.tar.gz
 

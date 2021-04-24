@@ -9,6 +9,6 @@ source parameters.sh
 cd ${great_d}
 tar -czvf GREAT_out.tar.gz GREAT_out
 
-echo "scp ${great_d}/GREAT_out.tar.gz ${hostname}:${data_d}/${RData_path%.RData}/"
-scp ${great_d}/GREAT_out.tar.gz ${hostname}:${data_d}/${RData_path%.RData}/
+echo "scp ${great_d}/GREAT_out.tar.gz ${hostname}:${data_d}/${results_sub_d}/${rdata_base}/"
+scp ${great_d}/GREAT_out.tar.gz ${hostname}:${data_d}/${results_sub_d}/${rdata_base}/
 
