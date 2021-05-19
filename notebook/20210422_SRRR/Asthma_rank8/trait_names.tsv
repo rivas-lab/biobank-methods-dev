@@ -1,0 +1,9 @@
+#GBE_ID	phenotype_name	phenotype_name_full
+HC382	Asthma	asthma
+INI30130	Monocyte count	Monocyte_count
+INI30140	Neutrophill count	Neutrophill_count
+INI30150	Eosinophill count	Eosinophill_count
+INI30160	Basophill count	Basophill_count
+INI3062	FVC	Forced_vital_capacity_(FVC)
+INI3063	FEV1	Forced_expiratory_volume_in_1-second_(FEV1)
+INI3064	PEF	Peak_expiratory_flow_(PEF)

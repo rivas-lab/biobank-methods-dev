@@ -14,3 +14,30 @@ find_argmax_lambda_idx <- function(results_dir){
     lambda_idx <- which.max(rowSums(last_rdata_env$metric_val))
     lambda_idx
 }
+
+
+read_var_annot <- function(var_annot_f){
+    # read variant annotation files
+    var_annot_f %>%
+    fread(colClasses = c('#CHROM'='character')) %>%
+    rename('CHROM'='#CHROM') %>%
+    mutate(ID_ALT = paste(ID, ALT, sep='_')) %>%
+    mutate(
+        POS_e = POS + str_length(REF),
+        CHROM = if_else(CHROM == 'XY', 'X', CHROM),
+        CHROM = if_else(CHROM == 'MT', 'M', CHROM),
+        CHROM = paste0('chr', CHROM)
+    )
+}
+
+get_top_k_variants <- function(var_contribution_df, component_idx, k=5000){
+    var_contribution_df %>%
+    filter(rank <= k, component == sprintf('Component%s', component_idx)) %>%
+    pull(rowname)
+}
+
+mkdir_p_if_not_exist <- function(path){
+    if(!dir.exists(path)){
+        dir.create(path, recursive=TRUE)
+    }
+}
