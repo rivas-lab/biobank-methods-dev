@@ -4,7 +4,6 @@ results_sub_d='results_rank_8'
 rdata_base='output_lambda_60'
 rank=8
 
-
 trait_names='trait_names.tsv'
 
 # we will save our data here
@@ -12,7 +11,7 @@ trait_names='trait_names.tsv'
 data_d='/oak/stanford/groups/mrivas/projects/biobank-methods-dev/20210422_SRRR/Asthma_rank8'
 
 # on the Bejerano lab server, we put the GREAT input/output here
-great_d='/cluster/u/ytanigaw/tmp/20210422_great'
+great_d='/cluster/u/ytanigaw/data/SRRR_great'
 assembly='hg19'
 hostname='sh2-dtn'
 ontology='MGIPhenoSingleKO'
