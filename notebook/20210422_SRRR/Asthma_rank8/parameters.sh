@@ -15,6 +15,7 @@ great_d='/cluster/u/ytanigaw/data/SRRR_great'
 assembly='hg19'
 hostname='sh2-dtn'
 ontology='MGIPhenoSingleKO'
+ontologies='EnsemblGenes,GOBiologicalProcess,GOCellularComponent,GOMolecularFunction,HumanPhenotypeOntology,MGIExpressionDetected,MGIExpressionNotDetected,MGIPhenoSingleKO,MGIPhenotype,MonarchPhenotypeAll,MonarchPhenotypeHuman'
 
 # reference data
 #  variant annotation file
