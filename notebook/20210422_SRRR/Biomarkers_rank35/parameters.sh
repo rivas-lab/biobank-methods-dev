@@ -9,10 +9,10 @@ rank=35
 data_d='/oak/stanford/groups/mrivas/projects/biobank-methods-dev/20210422_SRRR/Biomarkers_rank35'
 
 # on the Bejerano lab server, we put the GREAT input/output here
-great_d='/cluster/u/ytanigaw/tmp/20210422_great'
+great_d='/cluster/u/ytanigaw/data/SRRR_great'
 assembly='hg19'
 hostname='sh2-dtn'
-ontology='MGIPhenoSingleKO'
+ontologies='EnsemblGenes,GOBiologicalProcess,GOCellularComponent,GOMolecularFunction,HumanPhenotypeOntology,MGIExpressionDetected,MGIExpressionNotDetected,MGIPhenoSingleKO,MGIPhenotype,MonarchPhenotypeAll,MonarchPhenotypeHuman'
 
 # reference data
 #  variant annotation file
