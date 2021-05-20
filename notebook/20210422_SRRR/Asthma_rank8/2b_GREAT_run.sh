@@ -33,9 +33,9 @@ find ${great_local_d}/1_in_bed -name "*.bed" \
 done
 
 # extract
-echo ${ontologies} | tr ',' '\n' | while read ontology ; do
+! echo ${ontologies} | tr ',' '\n' | while read ontology ; do
     echo ${ontology}
-    find ${great_local_d}/1_in_bed -name "*.bed" \
+    find ${great_local_d}/1_in_bed -name "*.bed" | sort -V \
     | while read in_bed ; do
         out_dir=${great_local_d}/2_out/$(basename $in_bed .bed)
 
@@ -46,7 +46,8 @@ echo ${ontologies} | tr ',' '\n' | while read ontology ; do
 done
 
 # copy back
-echo ${ontologies} | tr ',' '\n' | while read ontology ; do
+! echo ${ontologies} | tr ',' '\n' | while read ontology ; do
+    echo ${ontology}
     echo "scp ${great_local_d}/3_out_by_onto/${ontology}.tsv.gz ${hostname}:${data_d}/${results_sub_d}/${rdata_base}/GREAT/3_out_by_onto/"
     scp       ${great_local_d}/3_out_by_onto/${ontology}.tsv.gz ${hostname}:${data_d}/${results_sub_d}/${rdata_base}/GREAT/3_out_by_onto/
 done
