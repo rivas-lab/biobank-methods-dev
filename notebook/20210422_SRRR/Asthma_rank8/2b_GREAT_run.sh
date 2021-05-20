@@ -35,14 +35,16 @@ done
 # extract
 ! echo ${ontologies} | tr ',' '\n' | while read ontology ; do
     echo ${ontology}
-    find ${great_local_d}/1_in_bed -name "*.bed" | sort -V \
-    | while read in_bed ; do
-        out_dir=${great_local_d}/2_out/$(basename $in_bed .bed)
 
-        bash $(dirname ${SRCDIR})/GREAT_binom_viewer.sh ${out_dir} ${ontology} $(basename $in_bed .bed) \
-            | egrep -v '^#'
-    done \
-    | bgzip -l9 -@6 > ${great_local_d}/3_out_by_onto/${ontology}.tsv.gz
+    {
+        echo "#sample_ID ontology term_ID BPval BFold Bn Bk BProb" | tr ' ' '\t'
+        find ${great_local_d}/1_in_bed -name "*.bed" | sort -V | while read in_bed ; do
+            out_dir=${great_local_d}/2_out/$(basename $in_bed .bed)
+
+            bash $(dirname ${SRCDIR})/GREAT_binom_viewer.sh ${out_dir} ${ontology} $(basename $in_bed .bed) \
+                | egrep -v '^#'
+        done
+    } | bgzip -l9 -@6 > ${great_local_d}/3_out_by_onto/${ontology}.tsv.gz
 done
 
 # copy back
