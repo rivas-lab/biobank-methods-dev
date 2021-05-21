@@ -41,3 +41,27 @@ mkdir_p_if_not_exist <- function(path){
         dir.create(path, recursive=TRUE)
     }
 }
+
+p_great_bar <- function(df){
+    # bar plot for GREAT enrichment results
+    
+    df %>%
+    ggplot(aes(
+        x = reorder(term_desc_plt, -BRank),
+        y = -log10(BPval)
+    )) +
+    geom_col(aes(fill = BFold)) +
+    theme_bw(base_size=11) +
+    scale_fill_gradientn(colours = c("skyblue", "blue"))+
+    coord_flip() +
+    theme(
+        legend.position=c(.92, .2),
+        legend.text=element_text(size=7),
+        legend.title=element_text(size=7)
+    ) +
+    labs(
+        x = '',
+        y = '-log10(Binomial p-value)',
+        fill='Binomial\nFold'
+    )    
+}
