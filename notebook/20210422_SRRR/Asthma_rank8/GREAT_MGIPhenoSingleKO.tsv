@@ -1,0 +1,11 @@
+#sample_ID	BRank	term_ID	term_desc	BFold	BPval
+1	1	MP:0001800	abnormal humoral immune response	2.215731	3.742679e-56
+1	2	MP:0000691	enlarged spleen	2.372242	3.301012e-54
+1	3	MP:0002401	abnormal lymphopoiesis	2.122877	3.669953e-54
+1	4	MP:0002490	abnormal immunoglobulin level	2.217705	3.506587e-51
+1	5	MP:0020201	abnormal granulocyte number	2.184308	4.285966e-49
+2	1	MP:0005014	increased B cell number	2.044468	6.763989e-24
+2	2	MP:0000693	spleen hyperplasia	2.887886	1.035991e-20
+2	3	MP:0012441	abnormal monocyte cell number	2.112822	1.779825e-19
+2	4	MP:0002620	abnormal monocyte morphology	2.088681	2.697475e-19
+2	5	MP:0001601	abnormal myelopoiesis	2.335859	1.12261e-18
