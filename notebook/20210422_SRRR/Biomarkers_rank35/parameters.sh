@@ -25,3 +25,6 @@ onto_terms='ontoTerms.canon'
 variant_weights_f='variant_weights.tsv'
 
 samples_str='Component1,Component2,Component3,Component4,Component5,Component6,Component7,Component8,HC382,INI30130,INI30140,INI30150,INI30160,INI3062,INI3063,INI3064'
+
+# colors
+cud4_d = '/oak/stanford/groups/mrivas/users/ytanigaw/repos/yk-tanigawa/cud4/inst/extdata'
